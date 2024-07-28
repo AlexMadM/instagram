@@ -1,0 +1,59 @@
+
+
+
+
+.page {
+max-width: 100%;
+margin-left: 24px;
+margin-right: 64px;
+margin-top: 36px;
+}
+
+.container {
+  display: flex;
+  margin-bottom: 20px;
+  border-bottom: 2px solid gray;
+
+
+}
+
+.tabTrigger {
+  padding: 10px 20px;
+  border: none;
+  background: black;
+  font-size: 12px;
+  cursor: pointer;
+  position: relative;
+  color: white;
+width: 100%;
+justify-content: center;
+  &[data-state="active"]{
+    color: blue;
+  }
+
+  &:hover{
+    color: blue;
+  }
+
+}
+
+.tabTrigger::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: blue; /* Цвет подчеркивания */
+  transition: width 0.3s;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+
+
+}
+
+.tabTrigger:hover::after,
+.tabTrigger[data-state="active"]::after {
+  width: 100%;
+
+
+}
