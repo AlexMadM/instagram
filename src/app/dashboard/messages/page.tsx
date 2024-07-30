@@ -9,7 +9,7 @@ const Messages = () => {
 <button onClick={()=>setOpen(!open)}>dadsfa</button>
             <Modal open={open} onOpenChange={setOpen} title="Modal">
                 <h1>Messagess</h1>
-                <p>slkvjvsdklfjsad++++++++++++</p>
+                <p>ТЕКСТ</p>
             </Modal>
         </div>
     );
