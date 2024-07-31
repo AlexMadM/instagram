@@ -54,3 +54,5 @@ export const DropdownMenuRadioGroup = DropdownMenuPrimitive.RadioGroup
 
 DropdownMenuSeparator.displayName = 'DropdownMenuSeparator';
 DropdownMenuItem.displayName = 'DropdownMenuItem';
+DropdownMenuContent.displayName = 'DropdownMenuContent';
+DropdownMenuLabel.displayName = 'DropdownMenuLabel';
