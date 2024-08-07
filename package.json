@@ -12,6 +12,7 @@
     "@hookform/resolvers": "^3.9.0",
     "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-dropdown-menu": "^2.1.1",
+    "@radix-ui/react-select": "^2.1.1",
     "@radix-ui/react-tabs": "^1.1.0",
     "clsx": "^2.1.1",
     "next": "14.2.4",
@@ -19,6 +20,7 @@
     "react-dom": "^18",
     "react-hook-form": "^7.52.2",
     "sass": "^1.77.6",
+    "tailwind-merge": "^2.4.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
