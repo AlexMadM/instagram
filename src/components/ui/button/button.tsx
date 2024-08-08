@@ -1,35 +1,30 @@
-import {ComponentPropsWithoutRef, ElementRef, ElementType, ForwardedRef, forwardRef, ReactNode} from "react";
-import {clsx} from "clsx";
-import s from './button.module.scss'
+import { ComponentPropsWithoutRef, ElementRef, forwardRef } from "react";
+import s from "./button.module.css";
+import clsx from "clsx";
+import { Slot } from "@radix-ui/react-slot";
 
-export type ButtonProps<T extends ElementType= 'button'>={
-    as?:T
-    children: ReactNode
-    className?: string
-    fullWidth?: boolean
-    variant?: 'icon' | 'link' | 'primary' | 'secondary' | 'tertiary'
-} & ComponentPropsWithoutRef<T>
+type Props = {
+  asChild?: boolean;
+  variant?: "primary" | "secondary" | "outlined" | "ghost";
+  fullWidth?: boolean;
+} & ComponentPropsWithoutRef<"button">;
 
+export const Button = forwardRef<ElementRef<"button">, Props>(
+  ({ variant = "primary", fullWidth, className, asChild, ...props }, ref) => {
+    const Comp = asChild ? Slot : "button";
+    return (
+      <Comp
+        {...props}
+        ref={ref}
+        className={clsx(
+          s.buttonRoot,
+          s[variant],
+          fullWidth && s.fullWidth,
+          className,
+        )}
+      />
+    );
+  },
+);
 
-const ButtonPolymorph = <T extends ElementType = 'button'>(props:ButtonProps<T>, ref: any) =>{
-    const {
-        as: Component = 'button',
-        className,
-        fullWidth,
-        rounded,
-        variant = 'primary',
-        ...rest
-    } = props
-    return (<Component className={clsx(s[variant], fullWidth && s.fullWidth, className)}
-                       {...rest}
-                       ref={ref}
-    />)
-}
-
-
-export const Button = forwardRef(ButtonPolymorph) as <T extends ElementType = 'button'>(
-    props: {
-        ref?: ForwardedRef<ElementRef<T>>
-    } & ButtonProps<T> &
-        Omit<ComponentPropsWithoutRef<T>, keyof ButtonProps<T>>
-) => ReturnType<typeof ButtonPolymorph>
+Button.displayName = "Button";

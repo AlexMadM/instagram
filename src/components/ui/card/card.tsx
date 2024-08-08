@@ -13,3 +13,5 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(({ className, ...restP
 
   return <div className={classNames.root} ref={ref} {...restProps}></div>
 })
+
+Card.displayName = 'Card'
