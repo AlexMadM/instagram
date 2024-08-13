@@ -6,12 +6,33 @@ import * as SelectPrimitive from "@radix-ui/react-select"
 import {ArrowIosDownOutline} from "@/assets/components";
 import {ChevronUp} from "@/assets/components-manual";
 import {cn} from "@/utils/cn";
+import {ComponentPropsWithoutRef} from "react";
 
-const Select = SelectPrimitive.Root
+
 
 const SelectGroup = SelectPrimitive.Group
 
 const SelectValue = SelectPrimitive.Value
+
+const Select = ({
+                    children,
+                    placeholder,
+                    triggerProps = {},
+                    ...props
+                }: ComponentPropsWithoutRef<typeof SelectPrimitive.Root> & {
+    placeholder?: string;
+    triggerProps?: Omit<
+        ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>,
+        "children"
+    >;
+}) => (
+    <SelectPrimitive.Root {...props}>
+        <SelectTrigger {...triggerProps}>
+            <SelectValue placeholder={placeholder} />
+        </SelectTrigger>
+        <SelectContent>{children}</SelectContent>
+    </SelectPrimitive.Root>
+);
 
 const SelectTrigger = React.forwardRef<
     React.ElementRef<typeof SelectPrimitive.Trigger>,
