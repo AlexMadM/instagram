@@ -16,7 +16,7 @@ const PostsP = () => {
                 <SelectValue placeholder="Theme" />
             </SelectTrigger>
             <SelectContent>
-                <SelectItem className="hover:cursor-pointer" value="light">Light</SelectItem>
+                <SelectItem value="light">Light</SelectItem>
                 <SelectItem value="dark">Dark</SelectItem>
                 <SelectItem value="system">System</SelectItem>
             </SelectContent>
