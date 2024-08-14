@@ -3,36 +3,16 @@
 import * as React from "react"
 import * as SelectPrimitive from "@radix-ui/react-select"
 
-import {ArrowIosDownOutline} from "@/assets/components";
-import {ChevronUp} from "@/assets/components-manual";
 import {cn} from "@/utils/cn";
-import {ComponentPropsWithoutRef} from "react";
+import {Check, ChevronDown, ChevronUp} from "lucide-react";
 
 
+
+const Select = SelectPrimitive.Root
 
 const SelectGroup = SelectPrimitive.Group
 
 const SelectValue = SelectPrimitive.Value
-
-const Select = ({
-                    children,
-                    placeholder,
-                    triggerProps = {},
-                    ...props
-                }: ComponentPropsWithoutRef<typeof SelectPrimitive.Root> & {
-    placeholder?: string;
-    triggerProps?: Omit<
-        ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>,
-        "children"
-    >;
-}) => (
-    <SelectPrimitive.Root {...props}>
-        <SelectTrigger {...triggerProps}>
-            <SelectValue placeholder={placeholder} />
-        </SelectTrigger>
-        <SelectContent>{children}</SelectContent>
-    </SelectPrimitive.Root>
-);
 
 const SelectTrigger = React.forwardRef<
     React.ElementRef<typeof SelectPrimitive.Trigger>,
@@ -48,7 +28,7 @@ const SelectTrigger = React.forwardRef<
     >
         {children}
         <SelectPrimitive.Icon asChild>
-            <ArrowIosDownOutline className="h-4 w-4 opacity-50" />
+            <ChevronDown className="h-4 w-4 opacity-50" />
         </SelectPrimitive.Icon>
     </SelectPrimitive.Trigger>
 ))
@@ -83,7 +63,7 @@ const SelectScrollDownButton = React.forwardRef<
         )}
         {...props}
     >
-        <ArrowIosDownOutline className="h-4 w-4" />
+        <ChevronDown className="h-4 w-4" />
     </SelectPrimitive.ScrollDownButton>
 ))
 SelectScrollDownButton.displayName =
@@ -140,14 +120,12 @@ const SelectItem = React.forwardRef<
     <SelectPrimitive.Item
         ref={ref}
         className={cn(
-            "relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+            " relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
             className
         )}
         {...props}
     >
-
-
-        <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
+        <SelectPrimitive.ItemText >{children}</SelectPrimitive.ItemText>
     </SelectPrimitive.Item>
 ))
 SelectItem.displayName = SelectPrimitive.Item.displayName

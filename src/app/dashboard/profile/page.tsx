@@ -3,6 +3,7 @@ import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs";
 import s from './profile.module.scss'
 
 import PostsP from "@/components/PostsP";
+import {SelectDemo} from "@/components/demo";
 
 const Profile = () => {
     return (
@@ -15,7 +16,7 @@ const Profile = () => {
                     <TabsTrigger className={s.tabTrigger} value="tab4">My payments</TabsTrigger>
                 </TabsList>
                 <TabsContent value="tab1"><PostsP/></TabsContent>
-                <TabsContent value="tab2">Tab two content</TabsContent>
+                <TabsContent value="tab2"><SelectDemo/></TabsContent>
                 <TabsContent value="tab3">Tab three content</TabsContent>
                 <TabsContent value="tab4">Tab 4 content</TabsContent>
             </Tabs>
