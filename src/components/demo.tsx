@@ -16,11 +16,11 @@ export function SelectDemo() {
             <SelectContent>
                 <SelectGroup>
                     <SelectLabel>Fruits</SelectLabel>
-                    <SelectItem value="apple">Apple</SelectItem>
-                    <SelectItem value="banana">Banana</SelectItem>
-                    <SelectItem value="blueberry">Blueberry</SelectItem>
-                    <SelectItem value="grapes">Grapes</SelectItem>
-                    <SelectItem value="pineapple">Pineapple</SelectItem>
+                    <SelectItem className="menuItem" value="apple">Apple</SelectItem>
+                    <SelectItem className="menuItem" value="banana">Banana</SelectItem>
+                    <SelectItem className="menuItem" value="blueberry">Blueberry</SelectItem>
+                    <SelectItem className="menuItem" value="grapes">Grapes</SelectItem>
+                    <SelectItem className="menuItem" value="pineapple">Pineapple</SelectItem>
                 </SelectGroup>
             </SelectContent>
         </Select>

@@ -9,17 +9,15 @@ import {
 } from 'react'
 
 
-
 import { mergeRefs } from '@/utils'
 import { clsx } from 'clsx'
 
 import s from './text-field.module.scss'
 import {Typography} from "@/components/ui/typography";
-import Search from "@/assets/Search";
-import Close from "@/assets/Close";
-import {Eye} from "@/assets/components";
-import {VisibilityOff} from "@/assets/components-manual";
-
+import {Close} from "@/assets/components";
+import VisibilityOff from "@/assets/components-manual/visibility-off";
+import Eye from "@/assets/components/Eye";
+import Search from "@/assets/components/Search";
 
 export type TextFieldProps = {
   containerProps?: ComponentProps<'div'>
@@ -153,4 +151,4 @@ function getFinalType(
 
   return type
 }
-TextField.displayName = 'TextField';
+TextField.displayName = 'TextField'

@@ -1,9 +1,11 @@
 import React from 'react';
+import Page from "@/app/dashboard/create/page";
+
 
 const Home = () => {
     return (
         <div>
-            <h1>Home</h1>
+           <Page/>
         </div>
     );
 };
