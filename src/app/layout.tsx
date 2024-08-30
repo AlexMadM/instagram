@@ -6,7 +6,7 @@ import "./globals.css";
 import {SideBar} from "@/components/sideBar/SideBar";
 
 import Providers from "@/app/store/provider";
-import RequireAuth from "@/components/require-auth";
+
 
 
 

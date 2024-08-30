@@ -1,8 +1,7 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {LoginArgs, LoginResponse, MeResponse} from "@/app/services/inctagram.types";
 import {Storage} from "@/utils/storage";
-import {Router} from "next/router";
-import { useRouter } from 'next/navigation'
+
 import {router} from "next/client";
 
 
