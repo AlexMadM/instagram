@@ -1,5 +1,5 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
-import {LoginArgs, LoginResponse, MeResponse} from "@/app/services/inctagram.types";
+import {IProfileAvatar, LoginArgs, LoginResponse, MeResponse} from "@/app/services/inctagram.types";
 import {Storage} from "@/utils/storage";
 
 import {router} from "next/client";
@@ -22,6 +22,15 @@ reducerPath: 'inctagramApi',
     return { me: builder.query<MeResponse, void>({
             query: () => '/api/v1/auth/me',
             providesTags: ['Me'],
+        }),createProfileAvatar: builder.mutation<IProfileAvatar,any >({
+
+            query: ({ file }) => {
+                return {
+                    body: file,
+                    method: 'POST',
+                    url: 'v1/users/profile/avatar',
+                }
+            },
         }),
         login: builder.mutation<LoginResponse, LoginArgs>({
             query(body) {
@@ -57,4 +66,4 @@ reducerPath: 'inctagramApi',
 },
     })
 
-export const { useLoginMutation, useMeQuery, useLazyMeQuery, useLogoutMutation } = inctagramApi
+export const { useLoginMutation, useMeQuery,useCreateProfileAvatarMutation, useLazyMeQuery, useLogoutMutation } = inctagramApi

@@ -13,3 +13,10 @@ export type MeResponse = {
     email: string
     isBlocked: boolean
 }
+export interface IProfileAvatar {
+    createdAt: Date
+    fileSize: number
+    height: number
+    url: string
+    width: number
+}
