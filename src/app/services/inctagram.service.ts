@@ -1,5 +1,12 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
-import {IProfileAvatar, LoginArgs, LoginResponse, MeResponse} from "@/app/services/inctagram.types";
+import {
+    GetLastCreatedPostsArgs,
+    GetLastCreatedPostsResponse,
+    IProfileAvatar,
+    LoginArgs,
+    LoginResponse,
+    MeResponse
+} from "@/app/services/inctagram.types";
 import {Storage} from "@/utils/storage";
 
 import {router} from "next/client";
@@ -29,6 +36,23 @@ reducerPath: 'inctagramApi',
                     body: file,
                     method: 'POST',
                     url: 'v1/users/profile/avatar',
+                }
+            },
+        }),getPublicPostsAll: builder.query<GetLastCreatedPostsResponse, GetLastCreatedPostsArgs>({
+            query: queryArgs => {
+                const params = new URLSearchParams({
+                    pageSize: queryArgs.pageSize?.toString() || '4',
+                    sortBy: queryArgs.sortBy || 'createdAt',
+                    sortDirection: queryArgs.sortDirection || 'desc',
+                })
+
+                if (queryArgs.endCursorPostId) {
+                    params.append('endCursorPostId', queryArgs.endCursorPostId.toString())
+                }
+
+                return {
+                    credentials: 'include',
+                    url: `v1/public-posts/all?${params.toString()}`,
                 }
             },
         }),
@@ -66,4 +90,4 @@ reducerPath: 'inctagramApi',
 },
     })
 
-export const { useLoginMutation, useMeQuery,useCreateProfileAvatarMutation, useLazyMeQuery, useLogoutMutation } = inctagramApi
+export const { useLoginMutation,useGetPublicPostsAllQuery, useMeQuery,useCreateProfileAvatarMutation, useLazyMeQuery, useLogoutMutation } = inctagramApi

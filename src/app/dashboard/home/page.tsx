@@ -1,12 +1,14 @@
 import React from 'react';
-import Page from "@/app/dashboard/create/page";
+
+import Posts from "@/components/posts";
+import {Card} from "@/components/ui/card";
 
 
 const Home = () => {
     return (
-        <div>
-           <Page/>
-        </div>
+<Card>    <Posts/>
+</Card>
+
     );
 };
 

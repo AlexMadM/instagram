@@ -17,9 +17,7 @@ export const ImageUpload = () => {
             setCover(file)
         }
     }
-    const removeCoverHandler = () => {
-        setCover(null)
-    }
+
     const uploadImage = async (file: File) => {
         try {
             await createAvatar({file})
