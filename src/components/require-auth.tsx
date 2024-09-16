@@ -2,7 +2,7 @@
 import { PropsWithChildren, useEffect } from 'react'
 
 import { useRouter } from 'next/navigation'
-import {useMeQuery} from "@/app/services/inctagram.service";
+import {useMeQuery} from "@/app/services/inctagramApi";
 
 
 export default function RequireAuth({ children }: PropsWithChildren) {

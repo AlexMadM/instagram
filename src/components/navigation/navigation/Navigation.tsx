@@ -5,15 +5,15 @@ import Home from "@/assets/Home";
 import Search from "@/assets/Search";
 import MessageCircle from "@/assets/MessageCircle";
 import PlusSquare from "@/assets/PlusSquare";
-import  s from './navigation.module.scss'
+import s from "./navigation.module.scss";
 import Person from "@/assets/Person";
-import {clsx} from "clsx";
-import {useRouter} from "next/navigation";
-import {useLoginMutation, useLogoutMutation, useMeQuery} from "@/app/services/inctagram.service";
-import {Storage} from "@/utils/storage";
-import {useEffect, useState} from "react";
+import { clsx } from "clsx";
+import { useRouter } from "next/navigation";
+// import {useLoginMutation, useLogoutMutation, useMeQuery} from "@/app/services/inctagramApi";
+import { Storage } from "@/utils/storage";
+import { useEffect, useState } from "react";
 const navItems = [
-  { name: "Home", href: "/dashboard/home", icon:Home},
+  { name: "Home", href: "/dashboard/home", icon: Home },
 
   {
     name: "Create",
@@ -36,54 +36,43 @@ const navItems = [
     icon: Search,
     hideOnMobile: true,
   },
-
-
-
 ];
 
 const Navigation = () => {
   const pathname = usePathname();
 
-  const [logout, { isSuccess }] = useLogoutMutation();
-  const router = useRouter()
-  const handleLogout = () => {
-    logout()
-        .unwrap()
-        .then(() => {
-          Storage.deleteToken();
-          router.replace('/api/login');
+  //   const [logout, { isSuccess }] = useLogoutMutation();
+  //   const router = useRouter()
+  //   const handleLogout = () => {
+  //     logout()
+  //         .unwrap()
+  //         .then(() => {
+  //           Storage.deleteToken();
+  //           router.replace('/api/login');
 
-        });
+  //         });
 
-  };
+  //   };
   return (
-      <div className={s.container}>
-        {navItems.map((link) => {
-          const isActive = pathname === link.href;
-          const LinkIcon = link.icon;
+    <div className={s.container}>
+      {navItems.map((link) => {
+        const isActive = pathname === link.href;
+        const LinkIcon = link.icon;
 
-          return (
-
-              <Link
-                  key={link.name}
-                  href={link.href}
-                  className={clsx(isActive ? "active" : "", s.nav, s.items)}
-              >
-                <LinkIcon className={s.icon}/>
-                {link.name}
-              </Link>
-          );
-        })}
-        <button
-                className="border rounded-md p-2 leading-4 inline-flex"
-                onClick={handleLogout}
-            >
-              Logout
-            </button>
-
-
-      </div>
+        return (
+          <Link
+            key={link.name}
+            href={link.href}
+            className={clsx(isActive ? "active" : "", s.nav, s.items)}
+          >
+            <LinkIcon className={s.icon} />
+            {link.name}
+          </Link>
+        );
+      })}
+      <button className="border rounded-md p-2 leading-4 inline-flex">Logout</button>
+    </div>
   );
 };
 
-export {Navigation};
+export { Navigation };

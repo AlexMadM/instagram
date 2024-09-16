@@ -1,7 +1,7 @@
 'use client'
 import React, {ChangeEvent, useState} from "react";
 import {Button} from "@/components/ui/button/button";
-import {useCreateProfileAvatarMutation} from "@/app/services/inctagram.service";
+import {useCreateProfileAvatarMutation} from "@/app/services/inctagramApi";
 import {Modal} from "@/components/ui/modal";
 
 

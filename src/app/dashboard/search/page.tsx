@@ -1,11 +1,13 @@
-import React from 'react';
+import { SignUp } from "@/components/auth/sign-up/sign-up";
+import SignIn from "@/components/auth/SignIn";
+import React from "react";
 
 const Search = () => {
-    return (
-        <div>
-            <h1>Search</h1>
-        </div>
-    );
+  return (
+    <div>
+      <SignIn />
+    </div>
+  );
 };
 
 export default Search;

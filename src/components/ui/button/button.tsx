@@ -1,30 +1,13 @@
-import { ComponentPropsWithoutRef, ElementRef, forwardRef } from "react";
-import s from "./button.module.css";
-import clsx from "clsx";
-import { Slot } from "@radix-ui/react-slot";
+import React from "react";
 
-type Props = {
-  asChild?: boolean;
-  variant?: "primary" | "secondary" | "outlined" | "ghost";
-  fullWidth?: boolean;
-} & ComponentPropsWithoutRef<"button">;
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  children: React.ReactNode;
+}
 
-export const Button = forwardRef<ElementRef<"button">, Props>(
-  ({ variant = "primary", fullWidth, className, asChild, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button";
-    return (
-      <Comp
-        {...props}
-        ref={ref}
-        className={clsx(
-          s.buttonRoot,
-          s[variant],
-          fullWidth && s.fullWidth,
-          className,
-        )}
-      />
-    );
-  },
-);
-
-Button.displayName = "Button";
+export const Button: React.FC<ButtonProps> = ({ children, className, ...props }) => {
+  return (
+    <button className={`px-4 py-2 rounded-md ${className}`} {...props}>
+      {children}
+    </button>
+  );
+};

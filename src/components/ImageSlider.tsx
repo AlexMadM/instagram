@@ -3,13 +3,13 @@
 
 import {ArrowBigLeft, ArrowBigRight} from "lucide-react";
 
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import Image from "next/image";
+import {Button} from "@/components/ui/button/button";
 
 
 export default function Carousel({
-                                     autoSlide = false,
-                                     autoSlideInterval = 3000,
+
                                      slides,
                                  }: {
     autoSlide?: boolean;
@@ -23,11 +23,7 @@ export default function Carousel({
     const next = () =>
         setCurr((curr) => (curr === slides.length - 1 ? 0 : curr + 1));
 
-    useEffect(() => {
-        if (!autoSlide) return;
-        const slideInterval = setInterval(next, autoSlideInterval);
-        return () => clearInterval(slideInterval);
-    }, []);
+
 
     return (
         <div className="overflow-hidden relative">
@@ -40,18 +36,18 @@ export default function Carousel({
                 ))}
             </div>
             <div className="absolute inset-0 flex items-center justify-between p-4">
-                <button
+                <Button
                     onClick={prev}
                     className="p-1 rounded-full shadow bg-white/80 text-gray-800 hover:bg-white"
                 >
                     <ArrowBigLeft size={40} />
-                </button>
-                <button
+                </Button>
+                <Button
                     onClick={next}
                     className="p-1 rounded-full shadow bg-white/80 text-gray-800 hover:bg-white"
                 >
                     <ArrowBigRight size={40} />
-                </button>
+                </Button>
             </div>
 
             <div className="absolute bottom-4 right-0 left-0">

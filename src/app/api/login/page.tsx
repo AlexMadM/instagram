@@ -5,7 +5,7 @@ import {SignIn} from "@/pages/sign-in/sign-in";
 
 import {SubmitHandler} from "react-hook-form";
 import {IAuthInput} from "@/shared/types";
-import {useLoginMutation} from "@/app/services/inctagram.service";
+import {useLoginMutation} from "@/app/services/inctagramApi";
 import {useRouter} from "next/navigation";
 
 

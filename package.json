@@ -16,7 +16,9 @@
     "@radix-ui/react-select": "^2.1.1",
     "@radix-ui/react-tabs": "^1.1.0",
     "@reduxjs/toolkit": "^2.2.7",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
     "@uploadthing/react": "^6.7.2",
+    "async-mutex": "^0.5.0",
     "clsx": "^2.1.1",
     "jwt-decode": "^4.0.0",
     "lucide": "^0.427.0",
@@ -32,6 +34,7 @@
     "react-timeago": "^7.2.0",
     "sass": "^1.77.6",
     "tailwind-merge": "^2.4.0",
+    "timeago-react": "^3.0.6",
     "uploadthing": "^6.13.2",
     "zod": "^3.23.8"
   },

@@ -1,6 +1,6 @@
 'use client'
 import { PostAll} from "@/components/post";
-import {useGetPublicPostsAllQuery} from "@/app/services/inctagram.service";
+import {useGetPublicPostsAllQuery} from "@/app/services/inctagramApi";
 
  function Posts() {
     const { data, error, isLoading } = useGetPublicPostsAllQuery({ pageSize: 50 })
